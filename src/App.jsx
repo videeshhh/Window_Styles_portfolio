@@ -27,7 +27,7 @@ export default function App() {
 
       {activeItem && (
         <Window title={activeItem.label} onClose={() => setActiveFolder(null)}>
-          {activeItem.content}
+          {activeItem.content && React.createElement(activeItem.content)}
         </Window>
       )}
     </>
