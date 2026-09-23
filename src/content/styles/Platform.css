@@ -1,18 +1,20 @@
 :root {
-  --github-card-bg: #161b22;
-  --github-border: #30363d;
-  --github-text: #c9d1d9;
-  --leetcode-card-bg: #282828;
-  --leetcode-border: #3e3e3e;
-  --leetcode-accent: #ffa116;
-  --leetcode-easy: #00b8a3;
-  --leetcode-medium: #ffc01e;
-  --leetcode-hard: #ff375f;
-  --leetcode-text: #eff2f6;
+  --gh-bg: #0d1117;
+  --gh-border: #30363d;
+  --gh-text: #c9d1d9;
+  
+  --lc-bg: #1a1a1a;
+  --lc-border: #333333;
+  --lc-text: #ffffff;
+  --lc-muted: #8c8c8c;
+  --lc-accent: #ffa116;
+  --lc-easy: #2cbb5d;
+  --lc-medium: #ffc01e;
+  --lc-hard: #ef4743;
 }
 
 body {
-  background-color: #0d1117;
+  background-color: #0b0e14;
   color: #f0f6fc;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   margin: 0;
@@ -20,187 +22,203 @@ body {
 }
 
 .platform {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 40px auto;
   padding: 0 20px;
-}
-
-.platform h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 28px;
-  text-align: center;
-  color: #ffffff;
 }
 
 .platform-cards {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
 }
 
-.platform-card {
+.github-card {
+  background-color: var(--gh-bg);
+  border: 1px solid var(--gh-border);
   border-radius: 12px;
   padding: 24px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.platform-card:hover {
-  transform: translateY(-2px);
-}
-
-.platform-cards > .platform-card:nth-child(1) {
-  background-color: var(--github-card-bg);
-  border: 1px solid var(--github-border);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-.platform-cards > .platform-card:nth-child(1) h2 {
-  font-size: 1.4rem;
-  margin: 0 0 4px 0;
-  color: #58a6ff;
-}
-
-.platform-cards > .platform-card:nth-child(1) > p {
-  color: #8b949e;
-  font-size: 0.9rem;
-  margin: 0 0 20px 0;
-}
-
-.github-stats-summary {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.github-stats-summary > div {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
-  padding: 12px 16px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.github-stats-summary span {
-  font-size: 0.75rem;
-  color: #8b949e;
-  text-transform: uppercase;
-}
-
-.github-stats-summary strong {
-  font-size: 1.2rem;
-  color: #3fb950;
 }
 
 .github-calendar {
   border: none !important;
-  color: var(--github-text);
-  font-size: 12px;
+  color: var(--gh-text);
+  font-family: inherit;
 }
 
-.github-calendar .calendar-graph text.month,
-.github-calendar .calendar-graph text.wday {
-  fill: #8b949e !important;
+.github-calendar .calendar-graph {
+  padding: 0 !important;
+  border: none !important;
 }
 
-.platform-cards > .platform-card:nth-child(2) {
-  background-color: var(--leetcode-card-bg);
-  border: 1px solid var(--leetcode-border);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  color: var(--leetcode-text);
+.github-calendar .contrib-column {
+  display: none !important;
 }
 
-.platform-cards > .platform-card:nth-child(2) h2 {
-  font-size: 1.4rem;
-  margin: 0 0 4px 0;
-  color: var(--leetcode-accent);
+.github-calendar .calendar-graph text.wday,
+.github-calendar .calendar-graph text.month {
+  fill: var(--gh-text) !important;
+  font-size: 10px;
 }
 
-.platform-cards > .platform-card:nth-child(2) > p {
-  color: #8c8c8c;
-  font-size: 0.9rem;
-  margin: 0 0 20px 0;
+.github-calendar .ContributionCalendar-day[data-level="0"] { fill: #161b22 !important; }
+.github-calendar .ContributionCalendar-day[data-level="1"] { fill: #0e4429 !important; }
+.github-calendar .ContributionCalendar-day[data-level="2"] { fill: #006d32 !important; }
+.github-calendar .ContributionCalendar-day[data-level="3"] { fill: #26a641 !important; }
+.github-calendar .ContributionCalendar-day[data-level="4"] { fill: #39d353 !important; }
+.github-calendar rect.ContributionCalendar-day {
+  rx: 2;
+  ry: 2;
 }
 
-.leetcode-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
+.leetcode-card {
+  background-color: var(--lc-bg);
+  border: 1px solid var(--lc-border);
+  border-radius: 12px;
+  padding: 24px;
+  color: var(--lc-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.leetcode-stats > div {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
-  padding: 14px;
+.lc-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.lc-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lc-username {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.lc-rank {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.lc-body {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.lc-ring-container {
+  flex-shrink: 0;
+}
+
+.lc-ring {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
 }
 
-.leetcode-stats > div span {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #8c8c8c;
-  margin-bottom: 6px;
-}
-
-.leetcode-stats > div strong {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.leetcode-stats > div:nth-child(1) strong {
-  color: var(--leetcode-accent);
-}
-
-.leetcode-stats > div:nth-child(2) span,
-.leetcode-stats > div:nth-child(2) strong {
-  color: var(--leetcode-easy);
-}
-
-.leetcode-stats > div:nth-child(3) span,
-.leetcode-stats > div:nth-child(3) strong {
-  color: var(--leetcode-medium);
-}
-
-.leetcode-stats > div:nth-child(4) span,
-.leetcode-stats > div:nth-child(4) strong {
-  color: var(--leetcode-hard);
-}
-
-.leetcode-graph-container {
-  border-top: 1px solid var(--leetcode-border);
-  padding-top: 16px;
-}
-
-.leetcode-graph-container h3 {
-  font-size: 0.95rem;
-  color: #8c8c8c;
-  margin: 0 0 12px 0;
-}
-
-.leetcode-heatmap {
+.lc-ring-inner {
+  width: 86px;
+  height: 86px;
+  background-color: var(--lc-bg);
+  border-radius: 50%;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.lc-total {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.lc-bars {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lc-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lc-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.lc-bar-header span:nth-child(2) {
+  color: var(--lc-muted);
+}
+
+.lc-bar-track {
+  height: 6px;
+  background-color: #333333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.lc-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.lc-bar-fill.easy { background-color: var(--lc-easy); }
+.lc-bar-fill.medium { background-color: var(--lc-medium); }
+.lc-bar-fill.hard { background-color: var(--lc-hard); }
+
+.lc-heatmap-section {
+  border-top: 1px solid var(--lc-border);
+  padding-top: 20px;
+}
+
+.lc-heatmap-section h3 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--lc-text);
+  margin: 0 0 16px 0;
+}
+
+.lc-heatmap-grid {
+  display: flex;
   gap: 3px;
-  max-height: 120px;
-  overflow-y: auto;
+  margin-bottom: 8px;
 }
 
-.heatmap-cell {
-  width: 10px;
-  height: 10px;
+.lc-heatmap-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lc-cell {
+  width: 12px;
+  height: 12px;
   border-radius: 2px;
-  background-color: #3e3e3e;
+  background-color: #282828;
 }
 
-.heatmap-cell.level-1 { background-color: #0e4429; }
-.heatmap-cell.level-2 { background-color: #006d32; }
-.heatmap-cell.level-3 { background-color: #26a641; }
-.heatmap-cell.level-4 { background-color: #39d353; }    
+.lc-cell.level-0 { background-color: #282828; }
+.lc-cell.level-1 { background-color: #0e4429; }
+.lc-cell.level-2 { background-color: #006d32; }
+.lc-cell.level-3 { background-color: #26a641; }
+
+.lc-heatmap-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--lc-muted);
+}
