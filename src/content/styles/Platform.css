@@ -1,0 +1,206 @@
+:root {
+  --github-card-bg: #161b22;
+  --github-border: #30363d;
+  --github-text: #c9d1d9;
+  --leetcode-card-bg: #282828;
+  --leetcode-border: #3e3e3e;
+  --leetcode-accent: #ffa116;
+  --leetcode-easy: #00b8a3;
+  --leetcode-medium: #ffc01e;
+  --leetcode-hard: #ff375f;
+  --leetcode-text: #eff2f6;
+}
+
+body {
+  background-color: #0d1117;
+  color: #f0f6fc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.platform {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.platform h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.platform-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.platform-card {
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.platform-card:hover {
+  transform: translateY(-2px);
+}
+
+.platform-cards > .platform-card:nth-child(1) {
+  background-color: var(--github-card-bg);
+  border: 1px solid var(--github-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.platform-cards > .platform-card:nth-child(1) h2 {
+  font-size: 1.4rem;
+  margin: 0 0 4px 0;
+  color: #58a6ff;
+}
+
+.platform-cards > .platform-card:nth-child(1) > p {
+  color: #8b949e;
+  font-size: 0.9rem;
+  margin: 0 0 20px 0;
+}
+
+.github-stats-summary {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.github-stats-summary > div {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.github-stats-summary span {
+  font-size: 0.75rem;
+  color: #8b949e;
+  text-transform: uppercase;
+}
+
+.github-stats-summary strong {
+  font-size: 1.2rem;
+  color: #3fb950;
+}
+
+.github-calendar {
+  border: none !important;
+  color: var(--github-text);
+  font-size: 12px;
+}
+
+.github-calendar .calendar-graph text.month,
+.github-calendar .calendar-graph text.wday {
+  fill: #8b949e !important;
+}
+
+.platform-cards > .platform-card:nth-child(2) {
+  background-color: var(--leetcode-card-bg);
+  border: 1px solid var(--leetcode-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  color: var(--leetcode-text);
+}
+
+.platform-cards > .platform-card:nth-child(2) h2 {
+  font-size: 1.4rem;
+  margin: 0 0 4px 0;
+  color: var(--leetcode-accent);
+}
+
+.platform-cards > .platform-card:nth-child(2) > p {
+  color: #8c8c8c;
+  font-size: 0.9rem;
+  margin: 0 0 20px 0;
+}
+
+.leetcode-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.leetcode-stats > div {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.leetcode-stats > div span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8c8c8c;
+  margin-bottom: 6px;
+}
+
+.leetcode-stats > div strong {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.leetcode-stats > div:nth-child(1) strong {
+  color: var(--leetcode-accent);
+}
+
+.leetcode-stats > div:nth-child(2) span,
+.leetcode-stats > div:nth-child(2) strong {
+  color: var(--leetcode-easy);
+}
+
+.leetcode-stats > div:nth-child(3) span,
+.leetcode-stats > div:nth-child(3) strong {
+  color: var(--leetcode-medium);
+}
+
+.leetcode-stats > div:nth-child(4) span,
+.leetcode-stats > div:nth-child(4) strong {
+  color: var(--leetcode-hard);
+}
+
+.leetcode-graph-container {
+  border-top: 1px solid var(--leetcode-border);
+  padding-top: 16px;
+}
+
+.leetcode-graph-container h3 {
+  font-size: 0.95rem;
+  color: #8c8c8c;
+  margin: 0 0 12px 0;
+}
+
+.leetcode-heatmap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.heatmap-cell {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: #3e3e3e;
+}
+
+.heatmap-cell.level-1 { background-color: #0e4429; }
+.heatmap-cell.level-2 { background-color: #006d32; }
+.heatmap-cell.level-3 { background-color: #26a641; }
+.heatmap-cell.level-4 { background-color: #39d353; }    

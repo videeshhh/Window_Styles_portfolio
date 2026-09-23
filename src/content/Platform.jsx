@@ -56,8 +56,8 @@ function LeetCodeCard({ username }) {
     async function fetchStats() {
       try {
         const response = await fetch(
-          `https://leetcode-stats-api.herokuapp.com/${username}`
-        );
+            `https://leetcode-api-faisalshohag.vercel.app/${username}`
+            );
 
         if (!response.ok) {
           throw new Error("Failed to fetch LeetCode data");
