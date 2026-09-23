@@ -2,7 +2,8 @@
   --gh-bg: #0d1117;
   --gh-border: #30363d;
   --gh-text: #c9d1d9;
-  
+  --gh-muted: #8b949e;
+
   --lc-bg: #1a1a1a;
   --lc-border: #333333;
   --lc-text: #ffffff;
@@ -11,6 +12,12 @@
   --lc-easy: #2cbb5d;
   --lc-medium: #ffc01e;
   --lc-hard: #ef4743;
+
+  --heat-0: #2d333b;
+  --heat-1: #0e4429;
+  --heat-2: #006d32;
+  --heat-3: #26a641;
+  --heat-4: #39d353;
 }
 
 body {
@@ -33,51 +40,58 @@ body {
   gap: 32px;
 }
 
-.github-card {
-  background-color: var(--gh-bg);
-  border: 1px solid var(--gh-border);
+.platform-card {
   border-radius: 12px;
   padding: 24px;
 }
 
-.github-calendar {
-  border: none !important;
+.github-card {
+  background-color: var(--gh-bg);
+  border: 1px solid var(--gh-border);
   color: var(--gh-text);
-  font-family: inherit;
 }
 
-.github-calendar .calendar-graph {
-  padding: 0 !important;
-  border: none !important;
+.gh-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
-.github-calendar .contrib-column {
-  display: none !important;
+.gh-avatar {
+  border-radius: 50%;
+  display: block;
 }
 
-.github-calendar .calendar-graph text.wday,
-.github-calendar .calendar-graph text.month {
-  fill: var(--gh-text) !important;
-  font-size: 10px;
+.gh-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.github-calendar .ContributionCalendar-day[data-level="0"] { fill: #161b22 !important; }
-.github-calendar .ContributionCalendar-day[data-level="1"] { fill: #0e4429 !important; }
-.github-calendar .ContributionCalendar-day[data-level="2"] { fill: #006d32 !important; }
-.github-calendar .ContributionCalendar-day[data-level="3"] { fill: #26a641 !important; }
-.github-calendar .ContributionCalendar-day[data-level="4"] { fill: #39d353 !important; }
-.github-calendar rect.ContributionCalendar-day {
-  rx: 2;
-  ry: 2;
+.gh-username {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gh-text);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.gh-username:hover {
+  text-decoration: underline;
+}
+
+.gh-total {
+  font-size: 0.85rem;
+  color: var(--gh-muted);
 }
 
 .leetcode-card {
   background-color: var(--lc-bg);
   border: 1px solid var(--lc-border);
-  border-radius: 12px;
-  padding: 24px;
   color: var(--lc-text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .lc-header {
@@ -96,6 +110,12 @@ body {
 .lc-username {
   font-size: 1.25rem;
   font-weight: 600;
+  color: var(--lc-text);
+  text-decoration: none;
+}
+
+.lc-username:hover {
+  text-decoration: underline;
 }
 
 .lc-rank {
@@ -174,6 +194,7 @@ body {
 .lc-bar-fill {
   height: 100%;
   border-radius: 4px;
+  transition: width 0.3s ease;
 }
 
 .lc-bar-fill.easy { background-color: var(--lc-easy); }
@@ -189,36 +210,187 @@ body {
   font-size: 0.9rem;
   font-weight: 400;
   color: var(--lc-text);
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
 }
 
-.lc-heatmap-grid {
+.contribution-calendar {
+  --cell-size: 11px;
+  --cell-gap: 3px;
+  --weekday-col-width: 28px;
+}
+
+.cc-scroll {
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.cc-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.cc-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.cc-months {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--cell-size);
+  column-gap: var(--cell-gap);
+  margin-left: var(--weekday-col-width);
+  margin-bottom: 4px;
+  min-height: 14px;
+}
+
+.cc-months span {
+  font-size: 10px;
+  color: var(--gh-muted);
+  white-space: nowrap;
+}
+
+.cc-body {
   display: flex;
-  gap: 3px;
-  margin-bottom: 8px;
+  gap: var(--cell-gap);
+  width: max-content;
 }
 
-.lc-heatmap-col {
+.cc-weekday-labels {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: var(--cell-gap);
+  width: var(--weekday-col-width);
+  flex-shrink: 0;
 }
 
-.lc-cell {
-  width: 12px;
-  height: 12px;
-  border-radius: 2px;
-  background-color: #282828;
+.cc-weekday-labels span {
+  height: var(--cell-size);
+  line-height: var(--cell-size);
+  font-size: 9px;
+  color: var(--gh-muted);
 }
 
-.lc-cell.level-0 { background-color: #282828; }
-.lc-cell.level-1 { background-color: #0e4429; }
-.lc-cell.level-2 { background-color: #006d32; }
-.lc-cell.level-3 { background-color: #26a641; }
-
-.lc-heatmap-footer {
+.cc-weeks {
   display: flex;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  color: var(--lc-muted);
+  gap: var(--cell-gap);
+}
+
+.cc-week {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cell-gap);
+}
+
+.cc-cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 2px;
+  background-color: var(--heat-0);
+}
+
+.cc-cell.cc-empty {
+  background-color: transparent;
+}
+
+.cc-cell.level-0 { background-color: var(--heat-0); }
+.cc-cell.level-1 { background-color: var(--heat-1); }
+.cc-cell.level-2 { background-color: var(--heat-2); }
+.cc-cell.level-3 { background-color: var(--heat-3); }
+.cc-cell.level-4 { background-color: var(--heat-4); }
+
+.cc-legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--gh-muted);
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.skeleton-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skeleton {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+.skeleton-header {
+  height: 32px;
+  width: 45%;
+}
+
+.skeleton-ring {
+  height: 100px;
+  width: 100%;
+}
+
+.skeleton-bar {
+  height: 14px;
+  width: 55%;
+}
+
+.skeleton-grid {
+  height: 112px;
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}
+
+.card-error {
+  padding: 24px 0;
+  text-align: center;
+  color: var(--gh-muted);
+}
+
+.card-error p {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+}
+
+.retry-button {
+  appearance: none;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.retry-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.retry-button:focus-visible {
+  outline: 2px solid #58a6ff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .platform {
+    padding: 0 12px;
+  }
+
+  .platform-card {
+    padding: 18px;
+  }
+
+  .lc-body {
+    gap: 24px;
+  }
 }
