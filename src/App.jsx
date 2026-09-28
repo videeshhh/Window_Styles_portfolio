@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Background from './Background';
 import DesktopIcon from "./dekstopIcon";
 import Window from './Window';
-import bgVideo from './assets/bg.mp4'; 
+import bgVideo from './assets/win.webp'; 
 import { desktopItems } from './dekstopConfig'; 
 import './App.css';
 

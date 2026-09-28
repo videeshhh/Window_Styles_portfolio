@@ -3,14 +3,13 @@ body {
   overflow: hidden; 
 }
 
-.bg-video {
+.bg-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
 }
 
 .content {

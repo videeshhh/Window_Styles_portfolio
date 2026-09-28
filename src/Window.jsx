@@ -17,10 +17,10 @@ export default function Window({ title, onClose, children }) {
 
   return (
     <WindowComponent
-      w={600}
-      h={400}
-      x={window.innerWidth / 2 - 300} 
-      y={100}
+      w={900}
+      h={900}
+      x={window.innerWidth / 2 - 450} 
+      y={50}
       boundary={true}
     >
       <div className="glass-container" ref={glassRef}>

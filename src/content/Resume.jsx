@@ -4,7 +4,7 @@ const Resume = () => {
   return (
     <div className="resume">
 
-      {/* Header */}
+     
       <div className="header">
 
         <div className="header-left">
@@ -23,7 +23,7 @@ const Resume = () => {
 
       </div>
 
-      {/* Education */}
+
       <h2>EDUCATION</h2>
 
       <table>
@@ -46,7 +46,6 @@ const Resume = () => {
         </tbody>
       </table>
 
-      {/* Technical Skills */}
       <h2>TECHNICAL SKILLS</h2>
 
       <ul className="skills-list">
@@ -84,13 +83,12 @@ const Resume = () => {
         </li>
       </ul>
 
-      {/* Projects */}
       <h2>PROJECTS</h2>
 
       <div className="section-item">
         <div className="item-header">
           <div className="item-title">
-            Live Code — <a href="#">GitHub</a>
+            Live Code — <a href="https://github.com/videeshhh/LiveCode">GitHub</a>
           </div>
 
           <div className="item-date">
@@ -129,7 +127,7 @@ const Resume = () => {
         <div className="item-header">
           <div className="item-title">
             Music Recommendation System using KNN —{" "}
-            <a href="#">GitHub</a>
+            <a href="https://github.com/videeshhh/Music-recommendation-system-using-spotify-api">GitHub</a>
           </div>
 
           <div className="item-date">
@@ -174,7 +172,7 @@ const Resume = () => {
         <div className="item-header">
           <div className="item-title">
             Jagruk Swadesh (SIH) —{" "}
-            <a href="#">GitHub</a> — <a href="#">Live Demo</a>
+            <a href="https://github.com/videeshhh/SIH2026_Team_jagruk_swadesh">GitHub</a> — <a href="#">Live Demo</a>
           </div>
 
           <div className="item-date">
@@ -207,7 +205,6 @@ const Resume = () => {
         </ul>
       </div>
 
-      {/* Leadership */}
       <h2>LEADERSHIP & ACTIVITIES</h2>
 
       <div className="section-item">
@@ -217,7 +214,7 @@ const Resume = () => {
           </div>
 
           <div className="cert-link">
-            <a href="#">View Certificate</a>
+            <a href="https://drive.google.com/file/d/1LBTuQ9xTRlQl0G4gZJv3zKubTzSnfMka/view">View Certificate</a>
           </div>
         </div>
 
@@ -239,7 +236,6 @@ const Resume = () => {
         </ul>
       </div>
 
-      {/* Certificates */}
       <h2>CERTIFICATES</h2>
 
       <div className="section-item">
@@ -259,7 +255,7 @@ const Resume = () => {
           </div>
 
           <div className="cert-link">
-            <a href="#">View Certificate</a>
+            <a href="https://www.udemy.com/certificate/UC-eeee8d0d-8443-4071-a8b3-1c20576b2e69/">View Certificate</a>
           </div>
         </div>
 
@@ -293,7 +289,7 @@ const Resume = () => {
           </div>
 
           <div className="cert-link">
-            <a href="#">View Certificate</a>
+            <a href="https://badges.plus.columbia.edu/24aef5eb-ac40-4419-a77a-fd5da2aa0882#acc.8O1uxLhc">View Certificate</a>
           </div>
         </div>
 
