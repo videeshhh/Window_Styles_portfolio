@@ -73,12 +73,6 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.italic-serif {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 4.5rem;
-}
 
 .description {
   color: var(--muted);

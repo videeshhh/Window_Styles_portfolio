@@ -47,7 +47,6 @@ const ProjectsList = () => {
   return (
     <section className="projects-section">
       <div className="projects-grid">
-        {/* Map over the correctly imported variable */}
         {projectsData.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

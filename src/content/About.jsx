@@ -6,11 +6,6 @@ import profileImage from "../assets/profile.jpeg";
 export default function About() {
   return (
     <>
-      <nav className="navbar">
-        <div className="logo">● DEVELOPER</div>
-        <button className="menu-btn">MENU ≡</button>
-      </nav>
-
       <main className="hero-section">
         <div className="hero-left">
           <p className="greeting">Hey. I'm a developer,</p>
@@ -18,7 +13,7 @@ export default function About() {
           <h1 className="main-title">
             BUILDING
             <br />
-            <span className="italic-serif">&</span> THINGS
+             THINGS
             <br />
             FOR THE WORLD
           </h1>
@@ -31,7 +26,7 @@ export default function About() {
             something new and applying it to create meaningful experiences.
           </p>
 
-          <a href="#" className="cta-button">
+          <a href="https://drive.google.com/file/d/1eCkaqVockrDKHoB5IDEymnUwCD-2xrdp/view?usp=sharing" className="cta-button">
             DOWNLOAD RESUME <span className="arrow">→</span>
           </a>
         </div>
@@ -88,6 +83,36 @@ export default function About() {
         <div className="skill-item">
           <h4>AI & INNOVATION</h4>
           <p>Leveraging new technologies to build smarter tools.</p>
+        </div>
+      </section>
+
+      <section className="skills-banner">
+
+        <div className="skill-set-items">
+          <h4>LANGUAGES</h4>
+          <p>JavaScript</p>
+          <p>C++</p>
+          <p>Python</p>
+        </div>
+
+        <div className="skill-set-items">
+          <h4>FRONTEND</h4>
+          <p>React</p>
+          <p>Framer Motion</p>
+          <p>Material UI</p>
+        </div>
+
+        <div className="skill-set-items">
+          <h4>BACKEND</h4>
+          <p>Node.js</p>
+          <p>Express.js</p>
+          <p>FastAPI</p>
+        </div>
+
+        <div className="skill-set-items">
+          <h4>DATABASE</h4>
+          <p>MongoDB</p>
+          <p>PostgreSQL</p>
         </div>
       </section>
     </>
